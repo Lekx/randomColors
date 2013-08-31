@@ -17,18 +17,18 @@ namespace RandColorGen
 			string[] colors = new string[quantity];
 			
 			Random random = new Random();
-			string generatedColor = "";
+			string generatedColor = "RGB[ ";
 
 			for (int counter = 0; counter < quantity; counter++)
 			{
 
-				for (int counter2 = 1; counter2 <= 3; counter2++)
+				for (int counter2 = 1; counter2 <= 4; counter2++)
 				{
 					generatedColor += random.Next(0, 15)+", ";
 				}
 
-				colors[counter] = generatedColor;
-				generatedColor = "";
+				colors[counter] = generatedColor.Remove(generatedColor.Length - 2)+" ]";
+				generatedColor = "RGB[ ";
 
 			}
 
@@ -67,7 +67,7 @@ namespace RandColorGen
 		{
 
 			RandomColors colors = new RandomColors();
-			Array myColors = colors.colorRgbGenerator(15);
+			Array myColors = colors.colorRgbGenerator(30);
 			int i = 1;
 
 			foreach(string color in myColors)
